@@ -1,0 +1,13 @@
+{% extends 'pkn/base.html' %}
+
+{% block content %}
+  
+  <div>
+	<h1>New Simulation</h1>
+    <form method="POST" class="sim-form">{% csrf_token %}
+    	{{ form.as_p }}
+    	<button type="submit" class="save btn btn-default">Save</button>
+    </form>
+  </div>  
+
+{% endblock %}
