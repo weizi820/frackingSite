@@ -1,4 +1,13 @@
 {% load staticfiles %}
+{% url 'index' as index_url %}
+{% url 'resume' as resume_url %}
+{% url 'education' as education_url %}
+{% url 'work' as work_url %}
+{% url 'research' as research_url %}
+{% url 'skills' as skills_url %}
+{% url 'awards' as awards_url %}
+{% url 'contact' as contact_url %}
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,17 +42,26 @@
 						<h1><a href="{% url 'index' %}">Endrina Rivas</a></h1>
 					</div>
 					<ul id="navigation">
-						<li class="active"><a href="{% url 'index' %}">Home</a></li>
-						<li><a href="{% url 'resume' %}"><img src="{% static 'main/images/down-arrow.png' %}" height="10" width="10"></img> Resume</a>
+						
+						<li {% if request.path == index_url %}class="active"{% endif %}>
+							<a href="{% url 'index' %}">Home</a></li>
+						<li {% if request.path == resume_url %}class="active"{% endif %}>
+							<a href="{% url 'resume' %}"><img src="{% static 'main/images/down-arrow.png' %}" height="10" width="10"></img> Resume</a>
 							<ul>
-								<li><a href="{% url 'education' %}">Education</a></li>
-								<li><a href="{% url 'work' %}">Work</a></li>
-								<li><a href="{% url 'research' %}">Research</a></li>
-								<li><a href="{% url 'skills' %}">Skills</a></li>
-								<li><a href="{% url 'awards' %}">Awards</a></li>
+								<li {% if request.path == education_url %}class="active"{% endif %}>
+									<a href="{% url 'education' %}">Education</a></li>
+								<li {% if request.path == work_url %}class="active"{% endif %}>
+									<a href="{% url 'work' %}">Work</a></li>
+								<li {% if request.path == research_url %}class="active"{% endif %}>
+									<a href="{% url 'research' %}">Research</a></li>
+								<li {% if request.path == skills_url %}class="active"{% endif %}>
+									<a href="{% url 'skills' %}">Skills</a></li>
+								<li {% if request.path == awards_url %}class="active"{% endif %}>
+									<a href="{% url 'awards' %}">Awards</a></li>
 							</ul>
 						</li>
-						<li><a href="{% url 'contact' %}">Contact</a></li>
+						<li {% if request.path == contact_url %}class="active"{% endif %}>
+							<a href="{% url 'contact' %}">Contact</a></li>
 					</ul>
 				</div>
 			</div>

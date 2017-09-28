@@ -125,10 +125,12 @@ body {
 #navigation li.active a {
 	color: #f99600;	/* orange */
 }
+
 /* subnavigation list (hidden by default) */
 ul#navigation ul {
 	display: none;
 }
+
 /* subnavigation list (shown when hovered over the main navigation item) */
 ul#navigation li:hover > ul{
 	list-style: none;
@@ -153,9 +155,15 @@ ul#navigation li:hover > ul li a {
 	font-size: 80%;
 	text-decoration: none;
 }
+
 /* set color of subnavigation list items when hovered */
 ul#navigation li:hover > ul li a:hover {
 	color: #000;
+}
+
+/* set color of subnavigation list items when hovered */
+ul#navigation li:hover > ul li.active a {
+	color: #f99600;	/* orange */
 }
 
 /*------------------------------ CONTENTS ------------------------------*/
