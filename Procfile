@@ -1,1 +1,1 @@
-web: gunicorn frackingiste.wsgi
+web: gunicorn frackingsite.wsgi
