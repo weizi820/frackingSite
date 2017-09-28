@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 	<h3>Resume</h3>
@@ -10,17 +11,17 @@
 		<tr>
 			<td>
 				<div id="circle" style="background: #F75D59">
-					<a href="{%url 'education' %}">Education</a>
+					<a href="{% url 'education' %}">Education</a>
 				</div>
 			</td>
 			<td>
 				<div id="circle" style="background: #3BB9FF">
-					<a href="{%url 'work' %}">Work</a>
+					<a href="{% url 'work' %}">Work</a>
 				</div>
 			</td>
 			<td>
 				<div id="circle" style="background: #9DC209">
-					<a href="{%url 'research' %}">Research</a>
+					<a href="{% url 'research' %}">Research</a>
 				</div>
 			</td>
 		</tr>
@@ -29,15 +30,16 @@
 		<tr>
 			<td>
 				<div id="circle" style="background: #B041FF">
-					<a href="{%url 'skills' %}">Skills</a>
+					<a href="{% url 'skills' %}">Skills</a>
 				</div>
 			</td>
 			<td>
 				<div id="circle" style="background: #f99600">
-					<a href="{%url 'awards' %}">Awards</a>
+					<a href="{% url 'awards' %}">Awards</a>
 				</div>
 			</td>
 		</tr>
 	</table>
 	<p style="text-align: center;">Click <a href="{% static 'main/files/Resume_Website.pdf' %}">here</a> for a PDF copy.</p>
+
 {% endblock %}
