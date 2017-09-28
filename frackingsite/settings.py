@@ -124,18 +124,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL = '/'
 
-# import dj_database_url
+import dj_database_url
 
-# DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config()
 
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
-# DEBUG = False
+DEBUG = False
 
-# try:
-#     from .local_settings import *
-# except ImportError:
-#     pass
-#     
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+    
