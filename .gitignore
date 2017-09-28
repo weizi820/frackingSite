@@ -3,7 +3,6 @@
 __pychache__
 fsenv
 db.sqlite3
-/static
 .DS_Store
 *.sublime-project
 *.sublime-workspace
