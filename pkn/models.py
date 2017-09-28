@@ -8,6 +8,8 @@ class Simulation(models.Model):
 	description = models.TextField()
 	published_date = models.DateTimeField(
 		default=timezone.now)
+	created_date = models.DateTimeField(
+		default=timezone.now)
 	completed_date = models.DateTimeField(
 		blank=True, null=True)
 

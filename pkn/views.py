@@ -7,9 +7,9 @@ from .forms import SimForm
 def main_page(request):
 	return render(request, 'pkn/pkn_main.html', {})
 
-def simulation_list(request):
+def sim_list(request):
 	sims = Simulation.objects.filter(published_date__lte=timezone.now()).order_by('completed_date')
-	return render(request, 'pkn/simulation_list.html', {'simulations': sims})
+	return render(request, 'pkn/sim_list.html', {'simulations': sims})
 
 def sim_detail(request, pk):
 	sim = get_object_or_404(Simulation, pk=pk)
@@ -46,3 +46,15 @@ def sim_edit(request, pk):
 def sim_draft_list(request):
     sims = Simulation.objects.filter(published_date__isnull=True).order_by('created_date')
     return render(request, 'pkn/sim_draft_list.html', {'sims': sims})
+
+@login_required
+def sim_publish(request, pk):
+	sim = get_object_or_404(Simulation, pk=pk)
+	sim.publish()
+	return redirect('post_detail', pk=pk)
+	
+@login_required
+def sim_remove(request, pk):
+	sim = get_object_or_404(Simulation, pk=pk)
+	sim.delete()
+	return redirect('sim_list')

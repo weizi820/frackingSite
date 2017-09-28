@@ -3,13 +3,16 @@
 {% block content %}
 
   <div>
-    {% if sim.completed_date %}
+    {% if sim.published_date %}
       <div class="date">
-        {{ sim.completed_date }}
+        {{ sim.published_date }}
       </div>
+    {% else %}
+      <a class="btn btn-default" href="{% url 'sim_publish' pk=sim.pk %}">Publish</a>
     {% endif %}
     {% if user.is_authenticated %}
       <a class="btn btn-default" href="{% url 'sim_edit' pk=sim.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+      <a class="btn btn-default" href="{% url 'sim_remove' pk=sim.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
     {% endif %}
     <h1>{{ sim.title }}</h1>
     <p>{{ sim.description|linebreaksbr }}</p>
