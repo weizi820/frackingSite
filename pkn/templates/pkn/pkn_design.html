@@ -1,0 +1,67 @@
+{% extends 'pkn/pkn_base.html' %}
+
+{% block content %}
+
+  <div class="design-input-screen">
+
+    <form class="design-form"
+          id="designForm">
+      <p> Enter design parameters below to determine the time required to propagate the PKN crack the desired length! </p>
+
+      <div class="left-column">
+        <label>Fracture length:</label><br>
+
+        <label>Young's Modulus:</label><br>
+        
+        <label>Poisson's ratio:</label><br>
+        
+        <label>Fracture Height:</label><br>
+                    
+        <label>Fluid viscosity:</label><br>
+        
+        <label>Fluid injection flow rate:</label><br>
+                    
+        <label>Fluid-loss Coefficient:</label><br>
+                    
+        <label>Spurt Loss Coefficient:</label><br>
+                    
+        <label>Material balance model:</label>            
+      </div>
+
+      <div class="right-column">
+        <input type="number" value=5><br>
+
+        <input type="number" value=5.5783e+10><br>
+        
+        <input type="number" value = 0.3><br>
+        
+        <input type="number" value=51.8><br>
+                    
+        <input type="number" value=0.2><br>
+        
+        <input type="number" value=0.0662><br>
+                    
+        <input type="number" value=9.84e6><br> 
+                    
+        <input type="number" value=0><br>
+                    
+        <select id="materialBalance">
+          <option>No Leak</option>
+          <option>Carter</option>
+          <option>Large Leak</option>
+        </select><br>
+      </div>
+
+      <div class="center-bottom">
+        <input type="button" 
+              onclick="designPKN()" 
+              value="Calculate!">
+        <input type="reset">
+        <input type="button"
+              onclick="homePage()"
+              value="Home Page">
+      </div>
+   </form>
+  </div>
+
+{% endblock %}

@@ -4,8 +4,17 @@ from django.contrib.auth.decorators import login_required
 from .models import Simulation 
 from .forms import SimForm
 
-def main_page(request):
+def pkn_main(request):
 	return render(request, 'pkn/pkn_main.html', {})
+
+def pkn_design(request):
+	return render(request, 'pkn/pkn_design.html', {})
+
+def pkn_analysis(request):
+	return render(request, 'pkn/pkn_analysis.html', {})
+
+def pkn_help(request):
+	return render(request, 'pkn/pkn_help.html', {})
 
 def sim_list(request):
 	sims = Simulation.objects.filter(published_date__lte=timezone.now()).order_by('completed_date')

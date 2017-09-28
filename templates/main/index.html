@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div id="leftcol">
+		<div id="pic"></div>
+	</div>
+	<div id="rightcol">
+		<div id="text">
+			<h1>Hello!</h1>
+			<h2>a bit about me:</h2>
+
+			<table id="inline-nav">
+				<tr>
+					<td>
+						<div id="circle" style="background: #F75D59">
+							<a href="{% url 'education' %}">Education</a>
+						</div>
+					</td>
+					<td>
+						<div id="circle" style="background: #3BB9FF">
+							<a href="{% url 'work' %}">Work</a>
+						</div>
+					</td>
+					<td>
+						<div id="circle" style="background: #9DC209">
+							<a href="{% url 'research' %}">Research</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+
+			<p>I am a graduate student at the University of Waterloo (Department of Civil and Environmental Engineering).
+			My current research is on microseismic monitoring in hydraulic fracturing 
+			applications. There is limited knowledge of the mechanisms behind microseismic event generation. 
+			I'm currently using the eXtended Finite Element Method (XFEM) to model a shear dilation
+			crack and the resulting wave propagation. I will then use this computational model to 
+			analyse the microseismic response due to shear dilation.</p>
+		</div>
+	</div>
+{% endblock %}
