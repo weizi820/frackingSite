@@ -11,19 +11,25 @@
 <!-- revamp for cellphones - picture first, then blog; larger font; drop-down menu -->
 <!-- optimize font size -->
 
+<!-- look into using a css framework such as bootstrap -->
+
+<!-- bootstrap sticky footer with fixed navbar -->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<!-- meta content and title -->
-			<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+			<meta content="text/html" http-equiv="content-type">
 			<meta content="Endrina Rivas" name="author">
-			<meta name="viewport" content="width=900;initial-scale=1">
 
 			<title>endrina rivas</title>
 
 		<!-- Data -->
 			<link rel="stylesheet" href="{% static 'main/css/style.css' %}" type="text/css">
-			<link href='http://fonts.googleapis.com/css?family=Didact+Gothic|Raleway' rel='stylesheet' type='text/css'>
+			<!-- <link href='http://fonts.googleapis.com/css?family=Didact+Gothic|Raleway' rel='stylesheet' type='text/css'> -->
 
 
 			<script>
@@ -49,7 +55,7 @@
 						<li {% if request.path == index_url %}class="active"{% endif %}>
 							<a href="{% url 'index' %}">Home</a></li>
 						<li {% if request.path == resume_url %}class="active"{% endif %}>
-							<a href="{% url 'resume' %}"><img src="{% static 'main/images/down-arrow.png' %}" height="10" width="10"></img> Resume</a>
+							<a href="{% url 'resume' %}"><img src="{% static 'main/images/down-arrow.png' %}" height="10" width="10"></img>Resume</a>
 							<ul>
 								<li {% if request.path == education_url %}class="active"{% endif %}>
 									<a href="{% url 'education' %}">Education</a></li>

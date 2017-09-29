@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
+from .pkn import pkn_plot
 from .models import Simulation 
 from .forms import SimForm
 
@@ -12,6 +14,10 @@ def pkn_design(request):
 
 def pkn_analysis(request):
 	return render(request, 'pkn/pkn_analysis.html', {})
+
+def pkn_results(request):
+	pkn_plot()
+	return render(request, 'pkn/pkn_results.html', {})
 
 def pkn_help(request):
 	return render(request, 'pkn/pkn_help.html', {})
