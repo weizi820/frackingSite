@@ -41,429 +41,444 @@ body {
 	text-align: center;
 }
 /*------------------------------ HEADER ------------------------------*/
-/* header container */
-#header {
-	background-color: #FFFFFF;	/* white */
-	width: 100%;
-	min-width: 800px;
-	height: 80px;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	border-bottom: 1px solid #e6e6e6;	/* light grey */
-	box-shadow: 6px 6px 10px #888888;
-}
-/* wrap around the header items to fix width */
-#header-wrap {
-	display: inline-block;
-	width: 800px;
-	margin: 0;
-	padding: 0;
-	padding-top: 20px;
-	border: 0;
-}
-/* container for my name */
-#name {
-	display: inline-block;
-	width: 300px;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	text-align: left;
-}
-/* font for my name */
-#name h1 {
-	font-size: 200%;
-	font-family: 'Raleway';
-	letter-spacing: 2px;
-	font-weight: normal;
-	vertical-align: middle;
-	line-height: normal;
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-#name h1 a{
-	text-decoration: none;
-	color: black;
-}
-/* navigation menu */
-#navigation {
-	display: inline-block;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	padding-top: 10px;
-	border: 0;
-}
-/* navigation list */
-#navigation ul {
-	display: inline-block;
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-/* navigation list items */
-#navigation li {
-	display: inline-block;
-	height: 100%;
-	width: 160px;
-	text-align: center;
-}
-/* links in navigation list items */
-#navigation li a {
-	color: #818181;
-	font-size: 100%;
-	text-decoration: none;
-}
-/* set color of navigation list items when hovered */
-#navigation li a:hover {
-	color: #000;
-}
-/* set color of navigation list items when active page */
-#navigation li.active a {
-	color: #f99600;	/* orange */
-}
+	/* header container */
+	#header {
+		background-color: #FFFFFF;	/* white */
+		width: 100%;
+		min-width: 800px;
+		height: 80px;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		border-bottom: 1px solid #e6e6e6;	/* light grey */
+		box-shadow: 6px 6px 10px #888888;
+	}
+	/* wrap around the header items to fix width */
+	#header-wrap {
+		display: inline-block;
+		width: 800px;
+		margin: 0;
+		padding: 0;
+		padding-top: 20px;
+		border: 0;
+	}
+	/* container for my name */
+	#name {
+		display: inline-block;
+		width: 300px;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		text-align: left;
+	}
+	/* font for my name */
+	#name h1 {
+		font-size: 200%;
+		font-family: 'Raleway';
+		letter-spacing: 2px;
+		font-weight: normal;
+		vertical-align: middle;
+		line-height: normal;
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+	#name h1 a{
+		text-decoration: none;
+		color: black;
+	}
+	/* navigation menu */
+	#navigation {
+		display: inline-block;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		padding-top: 10px;
+		border: 0;
+	}
+	/* navigation list */
+	#navigation ul {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+	/* navigation list items */
+	#navigation li {
+		display: inline-block;
+		height: 100%;
+		width: 160px;
+		text-align: center;
+	}
+	/* links in navigation list items */
+	#navigation li a {
+		color: #818181;
+		font-size: 100%;
+		text-decoration: none;
+	}
+	/* set color of navigation list items when hovered */
+	#navigation li a:hover {
+		color: #000;
+	}
+	/* set color of navigation list items when active page */
+	#navigation li.active a {
+		color: #f99600;	/* orange */
+	}
 
-/* subnavigation list (hidden by default) */
-ul#navigation ul {
-	display: none;
-}
+	/* subnavigation list (hidden by default) */
+	ul#navigation ul {
+		display: none;
+	}
 
-/* subnavigation list (shown when hovered over the main navigation item) */
-ul#navigation li:hover > ul{
-	list-style: none;
-	display: block;
-	position: absolute;
-	margin: 0;
-	margin-left: -120px;
-	padding: 0;
-	border: 0;
-	min-width: 400px;
-}
-/* subnavigation list items */
-ul#navigation li:hover > ul li {
-	height: 100%;
-	display: inline-block;
-	width: 70px;
-	text-align: center;
-}
-/* links in subnavigation list items */
-ul#navigation li:hover > ul li a {
-	color: #818181;
-	font-size: 80%;
-	text-decoration: none;
-}
+	/* subnavigation list (shown when hovered over the main navigation item) */
+	ul#navigation li:hover > ul{
+		list-style: none;
+		display: block;
+		position: absolute;
+		margin: 0;
+		margin-left: -120px;
+		padding: 0;
+		border: 0;
+		min-width: 400px;
+	}
+	/* subnavigation list items */
+	ul#navigation li:hover > ul li {
+		height: 100%;
+		display: inline-block;
+		width: 70px;
+		text-align: center;
+	}
+	/* links in subnavigation list items */
+	ul#navigation li:hover > ul li a {
+		color: #818181;
+		font-size: 80%;
+		text-decoration: none;
+	}
 
-/* set color of subnavigation list items when hovered */
-ul#navigation li:hover > ul li a:hover {
-	color: #000;
-}
+	/* set color of subnavigation list items when hovered */
+	ul#navigation li:hover > ul li a:hover {
+		color: #000;
+	}
 
-/* set color of subnavigation list items when hovered */
-ul#navigation li:hover > ul li.active a {
-	color: #f99600;	/* orange */
-}
+	/* set color of subnavigation list items when hovered */
+	ul#navigation li:hover > ul li.active a {
+		color: #f99600;	/* orange */
+	}
 
 /*------------------------------ CONTENTS ------------------------------*/
-#contents {
-	width: 800px;
-	min-height: calc(100vh - 35px - 80px - 20px);
-	margin: 0;
-	padding: 0;
-	padding-bottom: 20px;
-	border: 0;
-	display: inline-block;
-	position: relative;
-	text-align: left;
-}
-.contents:before {
-	content:"";
-	display: inline-block;
-	vertical-align: top;
-	height: 100%;
-}
-h1 {
-	color: #3e3e3e;
-	font-family: 'Raleway';
-	font-size: 4em;
-	font-weight: normal;
-	line-height: 1;
-	margin: 0;
-	padding-bottom: 10px;
-	padding-top:0.5em;
-}
-h2 {
-	color: #2c2c2c;
-	font-size: 2em;
-	font-weight: normal;
-	line-height: 1;
-	margin: 0;
-	padding-bottom: 10px;
-}
-h3 {
-	color: #3e3e3e;
-	font-size: 2.5em;
-	letter-spacing: 1px;
-	font-family: 'Didact Gothic', sans-serif;
-	font-weight: normal;
-	line-height: 1;
-	margin: 0;
-	border-bottom: 1px solid #e0e0e0;
-	text-transform: uppercase;
-	text-align: left;
-	padding-top: 1em;
-}
-h4{
-	color: #3e3e3e;
-	font-size: 1.5em;
-	letter-spacing: 1px;
-	font-family: 'Raleway',sans-serif;
-	font-weight: normal;
-	line-height: 1;
-	margin: 0;
-	border-bottom: 1px solid #e0e0e0;
-	text-align: left;
-	padding-bottom: em;
-	margin-left: 0.5em;
-}
-h4 a{
-	color: #3e3e3e;
-	text-decoration: underline;
-}
-h5 {
-	color: #585858;
-	font-size: 100%;
-	line-height: em;
-	margin: 0;
-	text-align: left;
-}
-p {
-	color: #585858;
-	font-size: 100%;
-	font-weight: lighter;
-	line-height: em;
-	margin: 0;
-	text-align: justify;
-}
-p a {
-	color: #f99600;
-	font-style: italic;
-	text-decoration: none;
-}
-p b { font-weight: bold; }
-#leftcol {
-	display: inline-block;
-	width: 40%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	position: absolute;
-}
-#pic {
-	width: 320px;
-	height: 320px;
-	border-radius: 50%;
-	position: absolute;
-	top: 50%;
-	margin-top: -160px;
+	#contents {
+		width: 800px;
+		min-height: calc(100vh - 35px - 80px - 20px);
+		margin: 0;
+		padding: 0;
+		padding-bottom: 20px;
+		border: 0;
+		display: inline-block;
+		position: relative;
+		text-align: left;
+	}
+	.contents:before {
+		content:"";
+		display: inline-block;
+		vertical-align: top;
+		height: 100%;
+	}
+	h1 {
+		color: #3e3e3e;
+		font-family: 'Raleway';
+		font-size: 4em;
+		font-weight: normal;
+		line-height: 1;
+		margin: 0;
+		padding-bottom: 10px;
+		padding-top:0.5em;
+	}
+	h2 {
+		color: #2c2c2c;
+		font-size: 2em;
+		font-weight: normal;
+		line-height: 1;
+		margin: 0;
+		padding-bottom: 10px;
+	}
+	h3 {
+		color: #3e3e3e;
+		font-size: 1.75em;
+		letter-spacing: 1px;
+		font-family: 'Didact Gothic', sans-serif;
+		font-weight: normal;
+		line-height: 1;
+		margin: 0;
+		border-bottom: 1px solid #e0e0e0;
+		text-transform: uppercase;
+		text-align: left;
+		padding-top: 1em;
+	}
+	h4{
+		color: #3e3e3e;
+		font-size: 1.25em;
+		letter-spacing: 1px;
+		font-family: 'Raleway',sans-serif;
+		font-weight: normal;
+		line-height: 1;
+		margin: 0;
+		border-bottom: 1px solid #e0e0e0;
+		text-align: left;
+		padding-bottom: em;
+		margin-left: 0.5em;
+	}
+	h4 a{
+		color: #3e3e3e;
+		text-decoration: underline;
+	}
+	h5 {
+		color: #585858;
+		font-size: 100%;
+		line-height: em;
+		margin: 0;
+		text-align: left;
+	}
+	p {
+		color: #585858;
+		font-size: 0.9em;
+		font-weight: lighter;
+		line-height: em;
+		margin: 0;
+		text-align: justify;
+	}
+	p a {
+		color: #f99600;
+		font-style: italic;
+		text-decoration: none;
+	}
+	p b { font-weight: bold; }
 
-	-webkit-transition: all 0.35s ease 0s;
-	/* Safari and Chrome */
-	-moz-transition: all .35s ease;
-  	/* Firefox */
-  	-ms-transition: all .35s ease;
-  	/* IE 9 */
-  	-o-transition: all .35s ease;
-  	/* Opera */
-  	transition: all .35s ease;
-	background: transparent url("../images/portrait.jpg") no-repeat scroll left top;
-	background-position: 0 0;
-	background-size: 320px;
-	background-clip: border-box;
-	background-origin: padding-box;
-}
-#pic2 {
-	margin: auto;
-	text-align: center;
-	width: 640px;
-	height: 250px;
-	background: transparent url("../images/wordle.png") no-repeat scroll left top;
-	background-position: 0 0;
-	background-size: auto auto;
-	background-clip: border-box;
-	background-origin: padding-box;
-	/* Wodle created on https://tagul.com/
+	#leftcol {
+		display: inline-block;
+		width: 40%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		position: absolute;
+	}
+	#pic {
+		width: 320px;
+		height: 320px;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		margin-top: -160px;
+
+		-webkit-transition: all 0.35s ease 0s;
+		/* Safari and Chrome */
+		-moz-transition: all .35s ease;
+	  	/* Firefox */
+	  	-ms-transition: all .35s ease;
+	  	/* IE 9 */
+	  	-o-transition: all .35s ease;
+	  	/* Opera */
+	  	transition: all .35s ease;
+		background: transparent url("../images/portrait.jpg") no-repeat scroll left top;
+		background-position: 0 0;
+		background-size: 320px;
+		background-clip: border-box;
+		background-origin: padding-box;
+	}
+	#pic2 {
+		margin: auto;
+		text-align: center;
+		width: 640px;
+		height: 250px;
+		background: transparent url("../images/wordle.png") no-repeat scroll left top;
+		background-position: 0 0;
+		background-size: auto auto;
+		background-clip: border-box;
+		background-origin: padding-box;
+		/* Wodle created on https://tagul.com/
 
 
-	Text: 
-		computational~mechanics
-		hydraulic~fracturing
-		energy
-		geomechanics
-		contact~methods
-		seismicity
-		wave~propagation
-		XFEM
-		FEM
-		fracture~modeling
-		infrastructure
+		Text: 
+			computational~mechanics
+			hydraulic~fracturing
+			energy
+			geomechanics
+			contact~methods
+			seismicity
+			wave~propagation
+			XFEM
+			FEM
+			fracture~modeling
+			infrastructure
 
-	Colors:
-		#eeeeee
-		#9DC209
-		#B041FF
-		#3BB9FF
-		#F75D59
-		#f99600
+		Colors:
+			#eeeeee
+			#9DC209
+			#B041FF
+			#3BB9FF
+			#F75D59
+			#f99600
 
-	Font:
-		Expressway Free or Goudy Bookletter
-	*/
-}
-/*#pic:hover {
-	background-position: 0 -320px;
-  	-webkit-transform: scale(1.05);
-  	/* Safari and Chrome */
-/*  	-moz-transform: scale(1.05);
-	/* Firefox */
-/*	-ms-transform: scale(1.05);
-	/* IE 9 */
-/*	-o-transform: scale(1.05);
-	/* Opera */
-/*	transform: scale(1.05);
-}*/
+		Font:
+			Expressway Free or Goudy Bookletter
+		*/
+	}
+	/*#pic:hover {
+		background-position: 0 -320px;
+	  	-webkit-transform: scale(1.05);
+	  	/* Safari and Chrome */
+	/*  	-moz-transform: scale(1.05);
+		/* Firefox */
+	/*	-ms-transform: scale(1.05);
+		/* IE 9 */
+	/*	-o-transform: scale(1.05);
+		/* Opera */
+	/*	transform: scale(1.05);
+	}*/
 
-#pic-left {
-	float: right;
-	width: 200px;
-	height: 200px;
-	margin-right: 30px;
-	background: transparent url("../images/grad.jpg") no-repeat scroll left top;
-	background-size: 200px;
-	background-position: center;
-	transform: rotate(-15deg);
-}
-#leftcol img{
-	width: 311px; 
-	height: 364px;
-	position: absolute;
-	left: 0;
-	top: 50%;
-	transform: translateY(-50%);
-}
-#rightcol {
-	display: inline-block;
-	vertical-align: middle;
-	min-height: calc(100vh - 35px - 80px - 20px);
-	margin: 0;
-	margin-left: 45%;
-	padding: 0;
-	border: 0;
-	text-align: left;
-}
-#text{
-	width: 100%;
-	height: 100%;
-	min-height: calc(100vh - 35px - 80px - 20px);
-	display:flex;
-	flex-direction: column;
-    justify-content: center;
-}
-#inline-nav {
-	margin: 20px auto;
-	padding: 0;
-	border: 0;
-	width: 100%;	
-}
-#inline-nav td {
-	position: relative;
-	height: 100%;
-	text-align: center;
-}
-#inline-nav td a {
-	font-size: 0.9em;
-	text-decoration: none;
-	color: white;
-	width: 80px;
-	position: absolute;
-	left: 0; right: 0;
-	margin: 30px auto;
-}
-#circle {
-	height: 80px;
-	width: 80px;
-	border-radius: 50%;
-	padding: 5%;
-	text-align: center;
-	margin: auto;
-}
-#section {
-	margin: 40px auto 20px auto;
-	padding: 0;
-	border: 0;
-	width: 100%;	
-}
-#bullet {
-	height: 100%;
-	text-align: center;
-	width: 30px;
-}
-#circle-bullet {
-	height: 25px;
-	width: 25px;
-	border-radius: 50%;
-	padding: 5%;
-	text-align: left;
-}
+	#pic-left {
+		float: right;
+		width: 200px;
+		height: 200px;
+		margin-right: 30px;
+		background: transparent url("../images/grad.jpg") no-repeat scroll left top;
+		background-size: 200px;
+		background-position: center;
+		transform: rotate(-15deg);
+	}
+	#leftcol img{
+		width: 311px; 
+		height: 364px;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	#rightcol {
+		display: inline-block;
+		vertical-align: middle;
+		min-height: calc(100vh - 35px - 80px - 20px);
+		margin: 0;
+		margin-left: 45%;
+		padding: 0;
+		border: 0;
+		text-align: left;
+	}
+	#rightcolsmall {
+		display: inline-block;
+		vertical-align: middle;
+		min-height: calc(100vh - 35px - 80px - 20px);
+		width: 300px; 
+		margin: 0;
+		margin-left: 50%;
+		padding: 0;
+		border: 0;
+		text-align: right;
+	}
+	#text{
+		width: 100%;
+		height: 100%;
+		min-height: calc(100vh - 35px - 80px - 20px);
+		display:flex;
+		flex-direction: column;
+	    justify-content: center;
+	}
+	#inline-nav {
+		margin: 20px auto;
+		padding: 0;
+		border: 0;
+		width: 100%;	
+	}
+	#inline-nav td {
+		position: relative;
+		height: 100%;
+		text-align: center;
+	}
+	#inline-nav td a {
+		font-size: 0.9em;
+		text-decoration: none;
+		color: white;
+		width: 80px;
+		position: absolute;
+		left: 0; right: 0;
+		margin: 30px auto;
+	}
+	#circle {
+		height: 60px;
+		width: 60px;
+		border-radius: 50%;
+		padding: 5%;
+		text-align: center;
+		margin: 0 auto 0 auto;
+		vertical-align: middle;
+		line-height:0px;
+	}
+	#section {
+		margin: 40px auto 20px auto;
+		padding: 0;
+		border: 0;
+		width: 100%;	
+	}
+	#bullet {
+		height: 100%;
+		text-align: center;
+		width: 15px;
+	}
+	#circle-bullet {
+		height: 15px;
+		width: 15px;
+		border-radius: 50%;
+		padding: 5%;
+		text-align: left;
+	}
+
 /*------------------------------ FOOTER ------------------------------*/
-#footer {
-	clear: both;
-	background-color: #413839;
-	width: 100%;
-	min-width: 800px;
-	height: 35px;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	border-top: 1px solid #d8d8d8;
-	text-align: center;
-}
-#footer-wrap{
-	width: 800px;
-	text-align: center;
-	margin: auto;
-	padding: 0;
-	border: 0;
-}
-#footer p {
-	font-size: 10pt;
-	line-height: normal;
-	width: 48%;
-	height: 100%;
-	margin: 0;
-	padding-left: 2%;
-	padding-top: 5px;
-	border: 0;
-	color: white;
-	display: inline;
-}
-#footer p2 {
-	font-size: 8pt;
-	display: inline;
-	padding-left: 30px;
-}
-#connect {
-	float: right;
-	width: 48%;
-	height: 100%;
-	margin: 0;
-	margin-right: 2%;
-	padding-top: 5px;
-	border: 0;
-	text-align: right;
-	line-height: normal;
-}
+	#footer {
+		clear: both;
+		background-color: #413839;
+		width: 100%;
+		min-width: 800px;
+		height: 35px;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		border-top: 1px solid #d8d8d8;
+		text-align: center;
+	}
+	#footer-wrap{
+		width: 800px;
+		text-align: center;
+		margin: auto;
+		padding: 0;
+		border: 0;
+	}
+	#footer p {
+		font-size: 10pt;
+		line-height: normal;
+		width: 48%;
+		height: 100%;
+		margin: 0;
+		padding-left: 2%;
+		padding-top: 5px;
+		border: 0;
+		color: white;
+		display: inline;
+	}
+	#footer p2 {
+		font-size: 8pt;
+		display: inline;
+		padding-left: 30px;
+	}
+	#connect {
+		float: right;
+		width: 48%;
+		height: 100%;
+		margin: 0;
+		margin-right: 2%;
+		padding-top: 5px;
+		border: 0;
+		text-align: right;
+		line-height: normal;
+	}
 

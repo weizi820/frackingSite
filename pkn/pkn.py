@@ -8,7 +8,7 @@
 #   Last Updated September 2017
 #   References: 
 #       [1] Nordgren, R. P. (1972). Propagation of a Vertical Hydraulic 
-#           Fracture. Society of Petroleum Engineers Journal, 12(4), 306â€“314. 
+#           Fracture. Society of Petroleum Engineers Journal, 12(4),
 #       [2] Valko, P., & Economides, M. J. (1995). Hydraulic Fracture Mechanics. 
 #           New York: John Wiley & Sons.
 #       [3] Yew, C. H. (1997). Mechanics of hydraulic fracturing. 
