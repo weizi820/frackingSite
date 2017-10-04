@@ -1,0 +1,12 @@
+pkn app: 
+
+- write pkn code in python
+
+- set up the pages for the pkn model
+
+- change the styling of the pkn model
+
+- figure out post-processing
+
+- optimize for cross-browser compatibility
+

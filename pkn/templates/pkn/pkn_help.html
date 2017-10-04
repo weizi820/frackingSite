@@ -1,0 +1,15 @@
+{% extends 'pkn/pkn_base.html' %}
+
+{% block content %}
+
+  <div class="help-screen">
+    <p>help</p>
+      <div class="center-bottom">
+        <button type="button"
+              onclick="location.href='{% url 'pkn_main' %}';">
+              <span class="glyphicon glyphicon-home"></span>
+              </button>
+      </div>
+  </div>
+
+{% endblock %}

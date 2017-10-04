@@ -7,13 +7,13 @@
       <div class="center-vertical">
         <input type="button" 
               value="New Design"
-              onclick="{% url 'pkn_design' %}"><br><br>
+              onclick="location.href='{% url 'pkn_design' %}';"><br><br>
         <input type="button" 
                 value="New Analysis"
-                onclick="{% url 'pkn_analysis' %}"><br><br>
+                onclick="location.href='{% url 'pkn_analysis' %}';"><br><br>
         <input type="button" 
                 value="Help"
-                onclick="{% url 'pkn_help' %}">
+                onclick="location.href='{% url 'pkn_help' %}';">
       </div>
     </form>
   </div>

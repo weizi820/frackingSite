@@ -124,8 +124,7 @@ body{ margin: 10px 0; }
   height: 480px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; 
-  display: none;}
+  box-sizing: border-box;}
 
 .analysis-input-screen {
   margin-top: 0px;
@@ -147,8 +146,7 @@ body{ margin: 10px 0; }
   height: 480px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; 
-  display: none;}
+  box-sizing: border-box;}
 
 .results-screen {
   margin-top: 0px;
@@ -170,8 +168,7 @@ body{ margin: 10px 0; }
   height: 480px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; 
-  display: none;}
+  box-sizing: border-box;}
 
 .help-screen {
   margin-top: 0px;
@@ -193,8 +190,7 @@ body{ margin: 10px 0; }
   height: 480px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; 
-  display: none;}
+  box-sizing: border-box;}
 
 .error-screen  {
   margin-top: 0px;
@@ -216,8 +212,7 @@ body{ margin: 10px 0; }
   height: 480px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; 
-  display: none;}
+  box-sizing: border-box;}
 
 form {
   position: absolute;
@@ -270,13 +265,35 @@ input {
   -webkit-appearance: none;
   -moz-appearance: none; }
 
-input[type=button],input[type=reset] {
+input[type=button],input[type=reset],input[type=submit] {
   height: 40px;
   padding: 0 20px;}
 
 input:focus {
   background-color: #3CBC8D;
   display: table-cell; }
+
+button{
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 3px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  background: #8f7a66;
+
+  display: inline-block;
+  color: #f9f6f2;
+  font-weight: bold;
+  line-height: 25px;
+
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  
+  -webkit-appearance: none;
+  -moz-appearance: none; }
 
 /*TODO: Fix this!*/
 label {

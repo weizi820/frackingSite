@@ -1,0 +1,13 @@
+{% extends 'pkn/pkn_base.html' %}
+
+{% block content %}
+
+{% include './pkn_plot.html' %}
+
+	<div class="center-bottom">
+      <button type="button"
+            onclick="location.href='{% url 'pkn_main' %}';">
+            <span class="glyphicon glyphicon-home"></span>
+            </button>
+    </div>
+{% endblock %}

@@ -23,38 +23,72 @@ import plotly as py
 import plotly.tools as tls
 import math 
 
-def pkn_plot():
+def pkn_plot_design(L, h, q, E, nu, mu, C, Sp, balance):
+  # Model Input 
+  # E: Young's modulus
+  # nu: Poisson's ratio
+  # fluid-loss coefficient
+  # spurt loss coefficient
+  # fracture height
+  # fluid viscosity
+  # fluid injection flow rate
+  # simulation time
+  # material balance model: 'no-leak', 'carter', 'large-leak'
+
+  # Calculations
+    
+  # define plane strain modulus if not defined
+  try: 
+    E_plane
+  except NameError:
+    E_plane = E/(1-nu**2)
+
+  # define shear modulus if not defined
+  try:
+    G 
+  except NameError:
+    G = E/2/(1+nu)
+
+  # Time required to reach specified fracture half-lengths
+  try: 
+    t_dict = {
+      # Ref. [2] Eqn. 9.13
+      'no-leak': (L/0.524/(q**3*E_plane/mu/h**4)**(1/5))**(5/4),
+      'carter': 0,
+      # Ref. [3] Eqn. 1-18
+      'large-leak': (L*math.pi*C*h/q)**2
+    }
+  except: 
+    t_dict = {}
+
+  # calculate the time
+  t = t_dict[balance]
+
+  # fracture width at the wellbore; Ref. [3] Eqn. 1-22
+  ww0 = 3.27*(q*mu*L/E_plane)**(1/4)
+
+  # net pressure at the wellbore; Ref. [3] Eqn. 1-23
+  pnw = E_plane/2/h*ww0
+
+  # Post-processing
+  # TODO: add some figures!
+
+  return t, ww0, pnw
+
+def pkn_plot_analysis(tstart, tend, inc, h, q, E, nu, mu, C, Sp, balance):
   # Model Input 
 
-  # Young's modulus
-  E = 5.5783e10
-
-  # Poisson's ratio
-  nu = 0.3
-
-  # plane strain modulus
-  E_plane = 6.13e10
-
+  # E: Young's modulus
+  # nu: Poisson's ratio
   # fluid-loss coefficient
-  C = 9.84e-6
-
   # spurt loss coefficient
-  Sp = 0
-
   # fracture height
-  h = 51.8
-
   # fluid viscosity
-  mu = 0.2
-
   # fluid injection flow rate
-  q = 0.0662
-
   # simulation time
-  t = np.arange(1200.)
+  t = np.arange(tstart, tend, inc)
 
   # material balance model: 'no-leak', 'carter', 'large-leak'
-  balance = 'no-leak'
 
   # Calculations
     
@@ -82,26 +116,7 @@ def pkn_plot():
   except:
     L_dict = {}
 
-  # Time required to reach specified fracture half-lengths
-  try: 
-    t_dict = {
-      # Ref. [2] Eqn. 9.13
-      'no-leak': (L/0.524/(q**3*E_plane/mu/h**4)**(1/5))**(5/4),
-      'carter': 0,
-      # Ref. [3] Eqn. 1-18
-      'large-leak': (L*math.pi*C*h/q)**2
-    }
-  except: 
-    t_dict = {}
-
-  # if time is defined, calculate fracture half-lengths, 
-  # otherwise, calculate the time
-  try:
-    t
-  except NameError:
-    t = t_dict[balance]
-  else: 
-    L = L_dict[balance]
+  L = L_dict[balance]
 
   # fracture width at the wellbore; Ref. [3] Eqn. 1-22
   ww0 = 3.27*(q*mu*L/E_plane)**(1/4)
@@ -111,7 +126,7 @@ def pkn_plot():
 
   # Post-processing
 
-  fig, (ax0, ax1, ax2, ax3) = plt.subplots(nrows=4)
+  fig, (ax0, ax1, ax2, ax3) = plt.subplots(nrows=4, figsize=(450/50, 450/50), dpi=50)
 
   line1, = ax0.plot(t, L)
   ax0.set_title('Half-length vs. time')
@@ -125,7 +140,9 @@ def pkn_plot():
   line4, = ax3.plot(ww0, L)
   ax3.set_title('Fracture width at wellbore over fracture length')
 
-  fig.tight_layout()
+  # fig.tight_layout()
 
   plotly_fig = tls.mpl_to_plotly( fig )
-  py.offline.plot( plotly_fig, auto_open=False, show_link=False, filename='templates/pkn/pkn_plot.html' )
+  plot_url = py.offline.plot( plotly_fig, auto_open=False, show_link=False, filename='pkn/templates/pkn/pkn_plot.html')
+
+  return plot_url

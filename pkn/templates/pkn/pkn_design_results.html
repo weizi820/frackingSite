@@ -1,0 +1,15 @@
+{% extends 'pkn/pkn_base.html' %}
+
+{% block content %}
+
+	<p>The required time to reach a fracture length of {{ L }} with the specified parameters is {{ t }}.</p><br>
+
+	<p>The net pressure at the wellbore at this time is {{ pnw }}, and the fracture width at the wellbore is {{ ww0}}.</p>
+
+	<div class="center-bottom">
+      <button type="button"
+            onclick="location.href='{% url 'pkn_main' %}';">
+            <span class="glyphicon glyphicon-home"></span>
+            </button>
+    </div>
+{% endblock %}
