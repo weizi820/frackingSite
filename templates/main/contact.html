@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
+{% load staticfiles %}
 {% block content %}
+	<br>
 	<h3>Contact</h3>
 
 	<p>
-		
 		<br>Department of Civil & Environmental Engineering
 		<br>University of Waterloo
 		<br>200 University Ave. W.
@@ -15,4 +16,11 @@
 		<strong>Email:</strong> <a href=mailto:endrina.rivas@uwaterloo.ca>[first name] . [last name] @ uwaterloo . ca</a>
 		<br>
 	</p>
+
+	<div>
+		<a href="http://ca.linkedin.com/in/endrinarivas">
+			<img style="width: 25px; height: 25px;" src="{% static 'main/images/kin.png' %}">
+		</a>
+	</div>
+
 {% endblock %}

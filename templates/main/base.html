@@ -18,20 +18,38 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<!-- meta content and title -->
+		<!-- Meta content -->
 			<meta charset="utf-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
 
 			<meta content="text/html" http-equiv="content-type">
 			<meta content="Endrina Rivas" name="author">
-
+			<meta name="keywords" content="research fracking xfem models pkn computational mechanics finite element analysis">
+			<meta name="copyright" content="Endrina Rivas 2017">
+			
 			<title>endrina rivas</title>
 
-		<!-- Data -->
+		<!-- Styles -->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+			<link href="https://fonts.googleapis.com/css?family=Oswald|Roboto|Satisfy" rel="stylesheet">  
 			<link rel="stylesheet" href="{% static 'main/css/style.css' %}" type="text/css">
-			<link href='http://fonts.googleapis.com/css?family=Didact+Gothic|Raleway' rel='stylesheet' type='text/css'>
 
+		<!-- Scripts -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+			<script src="{% static 'main/js/jquery.combinedScroll.js' %}"></script>	
+			<!-- <script type="text/javascript" scr="{% static 'main/js/base.js' %}"></script> -->
 
+			<script type="text/javascript">
+				jQuery(document).ready(function($) {
+				 
+				  // Hook up the current state to the nav bar
+				  $('.sidenav').onePageNav();
+				  
+				});
+			</script>
 			<script>
 				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -44,47 +62,175 @@
 	</head>
 
 	<body>
+		<div id="top"></div>
 		<div id="container">
+
 			<div id="header">
-				<div id="header-wrap">
-					<div id="name">
-						<h1><a href="{% url 'index' %}">Endrina Rivas</a></h1>
-					</div>
-					<ul id="navigation">
-						
-						<li {% if request.path == index_url %}class="active"{% endif %}>
-							<a href="{% url 'index' %}">Home</a></li>
-						<li {% if request.path == resume_url %}class="active"{% endif %}>
-							<a href="{% url 'resume' %}"><img src="{% static 'main/images/down-arrow.png' %}" height="10" width="10"></img> About Me</a>
-							<ul>
-								<li {% if request.path == education_url %}class="active"{% endif %}>
-									<a href="{% url 'education' %}">Education</a></li>
-								<li {% if request.path == work_url %}class="active"{% endif %}>
-									<a href="{% url 'work' %}">Work</a></li>
-								<li {% if request.path == research_url %}class="active"{% endif %}>
-									<a href="{% url 'research' %}">Research</a></li>
-								<li {% if request.path == skills_url %}class="active"{% endif %}>
-									<a href="{% url 'skills' %}">Skills</a></li>
-								<li {% if request.path == awards_url %}class="active"{% endif %}>
-									<a href="{% url 'awards' %}">Awards</a></li>
-							</ul>
-						</li>
-						<li {% if request.path == contact_url %}class="active"{% endif %}>
-							<a href="{% url 'contact' %}">Contact</a></li>
-					</ul>
+				<div id="name">
+					<h1><a href="{% url 'index' %}">Endrina Rivas</a></h1>
 				</div>
 			</div>
+
 			<div style="clear:both"></div>
+
+			<div id="home">
+				
+				<div id="leftcol">
+					<div id="pic"></div>
+				</div>
+
+				<div id="rightcol">
+					<div id="text">
+						<h1>Hello! I'm Endrina Rivas</h1>
+						<p>I am a graduate student at the University of Waterloo (Department of Civil and Environmental Engineering).
+						My current research is focused on making computational models of hydraulic fracturing using the eXtended Finite Element Method (XFEM).</p>
+					</div>
+
+					<nav id="bottomnav">
+						<ul>
+							<li>
+								<a href="#education"
+									style="transform: rotate(0deg); border-spacing: 0px;">
+									<span class="glyphicon glyphicon-education">
+								</a>
+							</li>
+							<li>
+								<a href="#work">
+									<span class="glyphicon glyphicon-briefcase">
+								</a>
+							</li>
+							<li>
+								<a href="#research">
+									<span class="fa fa-lightbulb-o">
+								</a>
+							</li>
+							<li>
+								<a href="#skills">
+									<span class="fa fa-gears">
+								</a>
+							</li>
+							<li>
+								<a href="#awards">
+									<span class="fa fa-trophy">
+								</a>
+							</li>
+							<li>
+								<a href="#contact">
+									<span class="glyphicon glyphicon-envelope">
+								</a>
+							</li>
+						</ul>
+					</nav>	
+				</div>
+			</div>
+
 			<div id="contents">
+				<div id="navigation">
+
+		    		<nav id="sidenav" class="sidenav">
+
+		    			<ul>
+							<li>
+		                        <h1>Home</h1>
+								<a href="#top">
+									<span class="glyphicon glyphicon-home">
+								</a>
+							</li><br>
+							<li>
+								<h1><span>Education</span></h1>
+								<a href="#education"
+									style="transform: rotate(0deg); border-spacing: 0px;">
+									<span class="glyphicon glyphicon-education">
+								</a>
+							</li><br>
+							<li>
+								<h1><span>Work</span></h1>
+								<a href="#work">
+									<span class="glyphicon glyphicon-briefcase">
+								</a>
+							</li><br>
+							<li>
+								<h1><span>Research</span></h1>
+								<a href="#research">
+									<span class="fa fa-lightbulb-o">
+								</a>
+							</li><br>
+							<li>
+								<h1><span>Skills</span></h1>
+								<a href="#skills">
+									<span class="fa fa-gears">
+								</a>
+							</li><br>
+							<li>
+								<h1><span>Awards</span></h1>
+								<a href="#awards">
+									<span class="fa fa-trophy">
+								</a>
+							</li><br>
+							<li>
+								<h1><span>Contact</span></h1>
+								<a href="#contact">
+									<span class="glyphicon glyphicon-envelope">
+								</a>
+							</li><br>
+					</nav>
+
+					<!-- <nav id="dropnav">
+
+						<div id="blackBck_"></div>
+
+		                <div class="mobile-toggle">
+		                    <span></span>
+		                    <span></span>
+		                    <span></span>
+		                </div>
+
+						<ul class="drop_menu">
+							<li data-id="s1">
+							<a href="{% url 'index' %}">
+								Home
+							</a> 
+							</li>
+							<li data-id="s2">
+							<a href="{% url 'education' %}">
+								Education
+							</a> 
+							</li>
+							<li data-id="s3">
+							<a href="{% url 'work' %}">
+								Work
+							</a> 
+							</li>
+							<li data-id="s4">
+							<a href="{% url 'research' %}">
+								Research
+							</a> 
+							</li>
+							<li data-id="s5">
+							<a href="{% url 'skills' %}">
+								Skills
+							</a> 
+							</li>
+							<li data-id="s6">
+							<a href="{% url 'awards' %}">
+								Awards
+							</a> 
+							</li>
+							<li data-id="s7">
+							<a href="{% url 'contact' %}">
+								Contact
+							</a> 
+							</li>						 						 						
+						</ul>
+					</nav> -->
+				</div>
+
 				{% block content %}
         		{% endblock %}
-			</div>
-		</div>
-		<div id="footer">
-			<div id="footer-wrap">
-				<div id="connect"> <a href="http://ca.linkedin.com/in/endrinarivas"><img style="width: 25px; height: 25px;" src="{% static 'main/images/kin.png' %}"></a></div>
+    		</div>
+
+			<div id="footer">
 				<p>&copy; 2017 Endrina Rivas</p>
-				<p2><i>Last updated: October 2017</i></p2>
 			</div>
 		</div>
 	</body>

@@ -2,38 +2,53 @@
 
 {% block content %}
 
-<!-- TODO: change  -->
-	<div id="leftcol">
-		<div id="pic"></div>
+	<div id="pic"></div>
+	<div id="text">
+		<h1>Hello!</h1>
+		<h2>a bit about me:</h2>
+
+		<p>I am a graduate student at the University of Waterloo (Department of Civil and Environmental Engineering).
+		My current research is focused on making computational models of hydraulic fracturing using the eXtended Finite Element Method (XFEM).</p>
+
 	</div>
-	<div id="rightcol">
-		<div id="text">
-			<h1>Hello!</h1>
-			<h2>a bit about me:</h2>
+{% endblock %}
 
 			<table id="inline-nav">
 				<tr>
 					<td>
-						<div id="circle" style="background: #F75D59">
+						<div id="circle" style="background: #ffffff"><!-- #F75D59 -->
 							<a href="{% url 'education' %}">Education</a>
+							<span class="glyphicon glyphicon-education">
 						</div>
 					</td>
 					<td>
-						<div id="circle" style="background: #3BB9FF">
+						<div id="circle" style="background: #ffffff"><!-- #3BB9FF -->
 							<a href="{% url 'work' %}">Work</a>
+							<span class="glyphicon glyphicon-briefcase">
 						</div>
 					</td>
 					<td>
-						<div id="circle" style="background: #9DC209">
+						<div id="circle" style="background: #ffffff"><!-- #9DC209 -->
 							<a href="{% url 'research' %}">Research</a>
+							<span class="fa fa-lightbulb-o">
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table id="inline-nav" style="width: 300px; margin-bottom: 20px">
+				<tr>
+					<td>
+						<div id="circle" style="background: #ffffff"><!-- #B041FF -->
+							<a href="{% url 'skills' %}">Skills</a>
+							<span class="fa fa-gears">
+						</div>
+					</td>
+					<td>
+						<div id="circle" style="background: #ffffff"><!-- #f99600 -->
+							<a href="{% url 'awards' %}">Awards</a>
+							<span class="fa fa-trophy">
 						</div>
 					</td>
 				</tr>
 			</table>
 
-			<p>I am a graduate student at the University of Waterloo (Department of Civil and Environmental Engineering).
-			My current research is focused on making computational models of hydraulic fracturing using the eXtended Finite Element Method (XFEM).</p>
-
-		</div>
-	</div>
-{% endblock %}
