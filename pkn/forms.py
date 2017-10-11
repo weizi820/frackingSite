@@ -18,7 +18,12 @@ class SignUpForm(UserCreationForm):
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
 
 class DesignForm(forms.Form):
-	length = forms.FloatField(label="Fracture length")
+	list_of_units = (
+		('MPa', 'MPa/mm/s'),
+		('Pa', 'Pa/m/s'),
+		)
+	unit = forms.ChoiceField(label="Units", choices=list_of_units)
+	length = forms.FloatField(label="Fracture length", initial=5e3)
 	height = forms.FloatField(label="Fracture height")
 	q = forms.FloatField(label="Fluid injection flow rate")
 	young_mod = forms.FloatField(label="Young's modulus")
@@ -31,21 +36,27 @@ class DesignForm(forms.Form):
 			('carter', 'Carter leak-off'), 
 			('large-leak', 'Large leak-off'),)
 	balance = forms.ChoiceField(label="Material balance model", choices=list_of_balance_models)
+	# TODO: set default values to example from book and cite
 
 class AnalysisForm(forms.Form):
-	start_time = forms.FloatField(label="Simulation start time")
-	end_time = forms.FloatField(label="Simulation end time")
-	inc = forms.FloatField(label="Time increment")
-	height = forms.FloatField(label="Fracture height")
-	q = forms.FloatField(label="Fluid injection flow rate")
-	young_mod = forms.FloatField(label="Young's modulus")
-	nu = forms.FloatField(label="Poisson's ratio", min_value=0.01, max_value = 0.99)
-	mu = forms.FloatField(label="Fluid viscosity")
-	fluid_loss_coeff = forms.FloatField(label="Fluid loss coefficient")
-	spurt_coeff = forms.FloatField(label="Spurt loss coefficient")
+	list_of_units = (
+		('Pa', 'Pa/m/s'),
+		('MPa', 'MPa/mm/s'),
+		)
+	unit = forms.ChoiceField(label="Units", choices=list_of_units)
+	start_time = forms.FloatField(label="Simulation start time", initial=0)
+	end_time = forms.FloatField(label="Simulation end time",initial=12000)
+	inc = forms.FloatField(label="Time increment",initial=1)
+	height = forms.FloatField(label="Fracture height",initial=51.8)
+	q = forms.FloatField(label="Fluid injection flow rate",initial=0.0662)
+	young_mod = forms.FloatField(label="Young's modulus",initial=5.5783e10)
+	nu = forms.FloatField(label="Poisson's ratio", min_value=0.01, max_value = 0.99,initial=0.3)
+	mu = forms.FloatField(label="Fluid viscosity",initial=0.2)
+	fluid_loss_coeff = forms.FloatField(label="Fluid loss coefficient",initial=9.84e-6)
+	spurt_coeff = forms.FloatField(label="Spurt loss coefficient",initial=0)
 	list_of_balance_models = (
 			('no-leak', 'No leak-off'),
 			('carter', 'Carter leak-off'), 
 			('large-leak', 'Large leak-off'),)
 	balance = forms.ChoiceField(label="Material balance model", choices=list_of_balance_models)
-	# TODO: set default values and min/max values
+	# TODO: set default values to example from book and cite

@@ -2,20 +2,13 @@
 
 {% block content %}
 
-  <div class="main-screen">
-    <form>
-      <div class="center-vertical">
-        <input type="button" 
-              value="New Design"
-              onclick="location.href='{% url 'pkn_design' %}';"><br><br>
-        <input type="button" 
-                value="New Analysis"
-                onclick="location.href='{% url 'pkn_analysis' %}';"><br><br>
-        <input type="button" 
-                value="Help"
-                onclick="location.href='{% url 'pkn_help' %}';">
-      </div>
-    </form>
+  <div class="center-vertical">
+    <button type="button" 
+          onclick="location.href='{% url 'pkn_design' %}';">New Design</button><br><br>
+    <button type="button" 
+            onclick="location.href='{% url 'pkn_analysis' %}';">New Analysis</button><br><br>
+    <button type="button" 
+            onclick="location.href='{% url 'pkn_help' %}';">Help</button>
   </div>
-
+  
 {% endblock %}

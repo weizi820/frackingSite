@@ -2,22 +2,27 @@
 
 {% block content %}
 
-  <div class="design-input-screen">
-
-    <form method="post">
+  
+  <form method="post">
+    <div class="inner">
       {% csrf_token %}
       <p> Enter design parameters below to determine the time required to propagate the PKN crack the desired length! </p>
+
       {{ form.as_p }}
+    </div>
 
-      <div class="center-bottom">
-        <input type="submit" value="Calculate!">
-        <input type="reset">
-                <button type="button"
-              onclick="location.href='{% url 'pkn_main' %}';">
-              <span class="glyphicon glyphicon-home"></span>
-              </button>
-      </div>
-   </form>
-  </div>
-
+    <div class="center-bottom">
+      <button type="submit" value="Calculate!">
+        Calculate!
+      </button>
+      <button type="reset" class="icon"> 
+        <span class="glyphicon glyphicon-repeat"></span>
+      </button>
+      <button type="button" class="icon"
+            onclick="location.href='{% url 'pkn_main' %}';">
+        <span class="glyphicon glyphicon-home"></span>
+      </button>
+    </div>
+  </form>
+ 
 {% endblock %}

@@ -2,14 +2,14 @@
 
 {% block content %}
 
-  <div class="help-screen">
-    <p>help</p>
-      <div class="center-bottom">
-        <button type="button"
-              onclick="location.href='{% url 'pkn_main' %}';">
-              <span class="glyphicon glyphicon-home"></span>
-              </button>
-      </div>
-  </div>
+	<div class="inner">
+	    <p>help</p>
+	</div>
+	<div class="center-bottom">
+		<button type="button" class="icon" 
+	      onclick="location.href='{% url 'pkn_main' %}';">
+	      	<span class="glyphicon glyphicon-home"></span>
+		</button>
+	</div>
 
 {% endblock %}

@@ -1,12 +1,4 @@
 {% load staticfiles %}
-{% url 'index' as index_url %}
-{% url 'resume' as resume_url %}
-{% url 'education' as education_url %}
-{% url 'work' as work_url %}
-{% url 'research' as research_url %}
-{% url 'skills' as skills_url %}
-{% url 'awards' as awards_url %}
-{% url 'contact' as contact_url %}
 
 <!-- revamp for cellphones - picture first, then blog; larger font; drop-down menu -->
 <!-- optimize font size -->
@@ -50,6 +42,7 @@
 				  
 				});
 			</script>
+
 			<script>
 				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -65,70 +58,19 @@
 		<div id="top"></div>
 		<div id="container">
 
+			<div style="clear:both"></div>
+
+			{% include 'home.html' %}
+
 			<div id="header">
 				<div id="name">
 					<h1><a href="{% url 'index' %}">Endrina Rivas</a></h1>
 				</div>
 			</div>
 
-			<div style="clear:both"></div>
-
-			<div id="home">
-				
-				<div id="leftcol">
-					<div id="pic"></div>
-				</div>
-
-				<div id="rightcol">
-					<div id="text">
-						<h1>Hello! I'm Endrina Rivas</h1>
-						<p>I am a graduate student at the University of Waterloo (Department of Civil and Environmental Engineering).
-						My current research is focused on making computational models of hydraulic fracturing using the eXtended Finite Element Method (XFEM).</p>
-					</div>
-
-					<nav id="bottomnav">
-						<ul>
-							<li>
-								<a href="#education"
-									style="transform: rotate(0deg); border-spacing: 0px;">
-									<span class="glyphicon glyphicon-education">
-								</a>
-							</li>
-							<li>
-								<a href="#work">
-									<span class="glyphicon glyphicon-briefcase">
-								</a>
-							</li>
-							<li>
-								<a href="#research">
-									<span class="fa fa-lightbulb-o">
-								</a>
-							</li>
-							<li>
-								<a href="#skills">
-									<span class="fa fa-gears">
-								</a>
-							</li>
-							<li>
-								<a href="#awards">
-									<span class="fa fa-trophy">
-								</a>
-							</li>
-							<li>
-								<a href="#contact">
-									<span class="glyphicon glyphicon-envelope">
-								</a>
-							</li>
-						</ul>
-					</nav>	
-				</div>
-			</div>
-
 			<div id="contents">
 				<div id="navigation">
-
 		    		<nav id="sidenav" class="sidenav">
-
 		    			<ul>
 							<li>
 		                        <h1>Home</h1>

@@ -2,10 +2,11 @@
 
 {% block content %}
 
-{% include './pkn_plot.html' %}
-
+	<div class="inner">
+		{% include './pkn_plot.html' %}
+	</div>
 	<div class="center-bottom">
-      <button type="button"
+      <button type="button" class="icon"
             onclick="location.href='{% url 'pkn_main' %}';">
             <span class="glyphicon glyphicon-home"></span>
             </button>

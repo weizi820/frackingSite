@@ -4,12 +4,7 @@
 
 <head>
 
-  <title>PKN</title>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">  
-  <link rel="stylesheet" href="{% static 'pkn/css/pkn.css' %}">
-
-  <!-- data -->
+  <!-- meta content -->
     <meta http-equiv="content-type" 
       content="text/html; 
       charset=UTF-8">
@@ -28,6 +23,15 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta name="format-detection" 
       content="telephone=no">
+
+    <title>PKN</title>
+
+  <!-- style -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">  
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto|Satisfy" rel="stylesheet"> 
+    <link rel="stylesheet" href="{% static 'pkn/css/pkn.css' %}">
+
 </head>
 
 <body>
@@ -41,13 +45,23 @@
     </div>
 
     <div>
+      
       <p>A simulator for a PKN hydraulic fracture.</p>
 
       {% if user.is_authenticated %}
-        <p> Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small> </p>
-        <a href="{% url 'sim_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-        <a href="{% url 'sim_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+
+        <p> Hello {{ user.username }} 
+          <small>(<a href="{% url 'logout' %}">Log out</a>)</small> 
+
+          <!-- new simulation -->
+          <a href="{% url 'sim_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        
+          <!-- simulation list -->
+          <a href="{% url 'sim_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+
+        </p>
       {% else %}
+
         <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
       {% endif %}
     </div>
@@ -61,7 +75,7 @@
 
     <hr>
     <p>
-      Created by <a href="{% url 'index' %}">Endrina Rivas</a>. Based on ...
+      Created by <a id="name" href="{% url 'index' %}">Endrina Rivas</a>. 
     </p>
 
   </div>

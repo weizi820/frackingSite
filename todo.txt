@@ -1,12 +1,17 @@
 pkn app: 
 
-- write pkn code in python
-
-- set up the pages for the pkn model
-
 - change the styling of the pkn model
 
 - figure out post-processing
 
 - optimize for cross-browser compatibility
 
+	- for mobile, use different layout
+
+- make the site change page names when scrolling
+
+- add dropdown nav for smaller screens
+
+- add screenshot of pkn simulator
+
+- remove wordle
