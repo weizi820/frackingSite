@@ -14,14 +14,31 @@
 #       [3] Yew, C. H. (1997). Mechanics of hydraulic fracturing. 
 #           Houston, Tex: Gulf Pub. Co.
 #   ----------------------------------------------------------------------
-import numpy as np 
+from numpy import arange, exp, sqrt, ones, size, zeros, where, delete
 import matplotlib
 matplotlib.use('Agg')
 from matplotlib import pyplot as plt 
 import matplotlib.mlab as mlab 
 import plotly as py
 import plotly.tools as tls
-import math 
+from math import pi
+from scipy.optimize import fsolve
+from scipy.special import erfc
+
+# Ref. [2] Eqn. 9.41
+def w_avg(L, mu, q, E_plane):
+  return 2.05*(mu*q*L/E_plane)**(1/4)
+
+# Ref. [2] Eqn. 9.42
+def beta(L, t, Sp, C, mu, q, E_plane):
+  w = w_avg(L, mu, q, E_plane)
+  return 2*C*sqrt(pi*t)/(w+2*Sp)
+
+# Ref. [2] Eqn. 9.42
+def carter(L, t, Sp, q, C, h, mu, E_plane):
+  w = w_avg(L, mu, q, E_plane)
+  b = beta(L, t, Sp, C, mu, q, E_plane)
+  return L - (w + 2*Sp)*q/4/C**2/pi/h*(exp(b**2)*erfc(b) + 2*b/sqrt(pi) - 1)  
 
 def pkn_plot_design(L, h, q, E, nu, mu, C, Sp, balance):
   # Model Input 
@@ -33,42 +50,51 @@ def pkn_plot_design(L, h, q, E, nu, mu, C, Sp, balance):
   # fluid viscosity
   # fluid injection flow rate
   # simulation time
-  # material balance model: 'no-leak', 'carter', 'large-leak'
+  # material balance model: 'noleak', 'carter', 'largeleak'
 
   # Calculations
     
   # define plane strain modulus if not defined
-  try: 
-    E_plane
-  except NameError:
-    E_plane = E/(1-nu**2)
+  E_plane = E/(1-nu**2)
 
   # define shear modulus if not defined
-  try:
-    G 
-  except NameError:
-    G = E/2/(1+nu)
+  G = E/2/(1+nu)
 
   # Time required to reach specified fracture half-lengths
-  try: 
-    t_dict = {
-      # Ref. [2] Eqn. 9.13
-      'no-leak': (L/0.524/(q**3*E_plane/mu/h**4)**(1/5))**(5/4),
-      'carter': 0,
-      # Ref. [3] Eqn. 1-18
-      'large-leak': (L*math.pi*C*h/q)**2
-    }
-  except: 
-    t_dict = {}
+  t_dict = {
+    # Ref. [2] Eqn. 9.13
+    'noleak': (L/0.524/(q**3*E_plane/mu/h**4)**(1/5))**(5/4),
+    'carter': float(fsolve(lambda t, L, Sp, q, C, h, mu, E_plane: 
+              carter(L, t, Sp, q, C, h, mu, E_plane), 1, 
+                      args=(L, Sp, q, C, h, mu, E_plane))),
+    # Ref. [3] Eqn. 1-18
+    'largeleak': (L*pi*C*h/q)**2
+  }
 
   # calculate the time
   t = t_dict[balance]
 
-  # fracture width at the wellbore; Ref. [3] Eqn. 1-22
-  ww0 = 3.27*(q*mu*L/E_plane)**(1/4)
+  # fracture width at the wellbore
+  ww0_dict = {
+    # Ref. [2] Eqn. 9.40
+    'noleak': 3.27*(q*mu*L/E_plane)**(1/4),
+    'carter': 3.27*(q*mu*L/E_plane)**(1/4),
+    # Ref. [3] Eqn. 1-19
+    'largeleak': 4*(2*(1-nu)*mu*q**2/pi**3/G/C/h)**(1/4)*t**(1/8)
+  }
 
-  # net pressure at the wellbore; Ref. [3] Eqn. 1-23
-  pnw = E_plane/2/h*ww0
+  ww0 = ww0_dict[balance]
+
+  # net pressure at the wellbore
+  pnw_dict = {
+    # Ref. [2] Eqn. 9.1
+    'noleak': E_plane/2/h*ww0,
+    'carter': E_plane/2/h*ww0,
+    # Ref. [3] Eqn. 1-20
+    'largeleak': 4*(2*G**3*mu*q**2/pi**3/(1-nu)**3/C/h**5)**(1/4)*t**(1/8)
+  }
+
+  pnw = pnw_dict[balance]
 
   # Post-processing
   # TODO: add some figures!
@@ -86,43 +112,61 @@ def pkn_plot_analysis(tstart, tend, inc, h, q, E, nu, mu, C, Sp, balance):
   # fluid viscosity
   # fluid injection flow rate
   # simulation time
-  t = np.arange(tstart, tend, inc)
 
-  # material balance model: 'no-leak', 'carter', 'large-leak'
+  t = arange(tstart, tend+inc, inc)
+
+  # remove zero from the start time
+  t = delete(t, where(t==0)[0])
+
+  # material balance model: 'noleak', 'carter', 'largeleak'
 
   # Calculations
     
   # define plane strain modulus if not defined
-  try: 
-    E_plane
-  except NameError:
-    E_plane = E/(1-nu**2)
+  E_plane = E/(1-nu**2)
 
   # define shear modulus if not defined
-  try:
-    G 
-  except NameError:
-    G = E/2/(1+nu)
+  G = E/2/(1+nu)
 
   # Fracture half-lengths over time
-  try:
+  L = zeros(t.size)
+  if (balance=='carter'):
+    for i in range(t.size):
+      L[i] = fsolve(carter,1,args=(t[i], Sp, q, C, h, mu, E_plane))
+
+  else:
     L_dict = {
       # Ref. [2] Eqn. 9.13
-      'no-leak': (625/512/math.pi**3)**(1/5)*(q**3*E_plane/mu/h**4)**(1/5)*t**(4/5),
-      'carter': 0,
+      'noleak': (625/512/pi**3)**(1/5)*(q**3*E_plane/mu/h**4)**(1/5)*t**(4/5),
+      # Ref. [2] 
+      # 'carter': fsolve(carter,ones(t.size),args=(t, Sp, q, C, h, mu, E_plane)),
       # Ref. [3] Eqn. 1-18
-      'large-leak': q/math.pi/C/h*t**(1/2)
+      'largeleak': q/pi/C/h*t**(1/2)
     }
-  except:
-    L_dict = {}
 
-  L = L_dict[balance]
+    L = L_dict[balance]
 
-  # fracture width at the wellbore; Ref. [3] Eqn. 1-22
-  ww0 = 3.27*(q*mu*L/E_plane)**(1/4)
+  # fracture width at the wellbore
+  ww0_dict = {
+    # Ref. [2] Eqn. 9.40
+    'noleak': 3.27*(q*mu*L/E_plane)**(1/4),
+    'carter': 3.27*(q*mu*L/E_plane)**(1/4),
+    # Ref. [3] Eqn. 1-19
+    'largeleak': 4*(2*(1-nu)*mu*q**2/pi**3/G/C/h)**(1/4)*t**(1/8)
+  }
 
-  # net pressure at the wellbore; Ref. [3] Eqn. 1-23
-  pnw = E_plane/2/h*ww0
+  ww0 = ww0_dict[balance]
+
+  # net pressure at the wellbore
+  pnw_dict = {
+    # Ref. [2] Eqn. 9.1
+    'noleak': E_plane/2/h*ww0,
+    'carter': E_plane/2/h*ww0,
+    # Ref. [3] Eqn. 1-20
+    'largeleak': 4*(2*G**3*mu*q**2/pi**3/(1-nu)**3/C/h**5)**(1/4)*t**(1/8)
+  }
+
+  pnw = pnw_dict[balance]
 
   # Post-processing
 
