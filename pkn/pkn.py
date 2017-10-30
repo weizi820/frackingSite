@@ -40,7 +40,8 @@ def carter(L, t, Sp, q, C, h, mu, E_plane):
   b = beta(L, t, Sp, C, mu, q, E_plane)
   return L - (w + 2*Sp)*q/4/C**2/pi/h*(exp(b**2)*erfc(b) + 2*b/sqrt(pi) - 1)  
 
-def pkn_plot_design(L, h, q, E, nu, mu, C, Sp, balance):
+# def pkn_plot_design(L, h, q, E, nu, mu, C, Sp, balance):
+def pkn_plot_design(design_sim):
   # Model Input 
   # E: Young's modulus
   # nu: Poisson's ratio
@@ -51,6 +52,16 @@ def pkn_plot_design(L, h, q, E, nu, mu, C, Sp, balance):
   # fluid injection flow rate
   # simulation time
   # material balance model: 'noleak', 'carter', 'largeleak'
+
+  L = design_sim.length
+  h = design_sim.height
+  q = design_sim.q
+  E = design_sim.young_mod
+  nu = design_sim.nu
+  mu = design_sim.mu
+  C = design_sim.fluid_loss_coeff
+  Sp = design_sim.spurt_coeff
+  balance = design_sim.balance
 
   # Calculations
     

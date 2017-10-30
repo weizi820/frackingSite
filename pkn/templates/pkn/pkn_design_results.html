@@ -3,13 +3,23 @@
 {% block content %}
 
 	<div class="inner">
-		<p>The required time to reach a fracture length of {{ L }} with the specified parameters is {{ t }}.</p><br>
+		<p>The required time to reach a fracture length of {{ design_sim.length }} with the specified parameters is {{ design_sim.t }}.</p><br>
 
-		<p>The net pressure at the wellbore at this time is {{ pnw }}, and the fracture width at the wellbore is {{ ww0}}.</p>
+		<p>The net pressure at the wellbore at this time is {{ design_sim.pnw }}, and the fracture width at the wellbore is {{ design_sim.ww0 }}.</p>
 	</div>
 	<div class="center-bottom">
-      <button type="button" class="icon"
-            onclick="location.href='{% url 'pkn_main' %}';">
+		<button type="button" class="icon"
+			onclick="location.href='{% url 'design_sim_save' pk=design_sim.pk %}';">
+			<span class="glyphicon glyphicon-floppy-disk">
+			</button>
+
+		<button type="button" class="icon"
+			onclick="location.href='{% url 'design_sim_remove' pk=design_sim.pk %}';">
+			<span class="glyphicon glyphicon-floppy-disk">
+			</button>
+
+      	<button type="button" class="icon"
+            onclick="location.href='{% url 'design_sim_remove' pk=design_sim.pk %}';">
             <span class="glyphicon glyphicon-home"></span>
             </button>
     </div>

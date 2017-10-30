@@ -1,6 +1,6 @@
 pkn app: 
 
-- change the styling of the pkn model
+- change the styling of the pkn model site
 
 - figure out post-processing
 
@@ -12,6 +12,8 @@ pkn app:
 
 - add dropdown nav for smaller screens
 
-- add screenshot of pkn simulator
+- add screenshot of pkn simulator in personal site
 
-- remove wordle
+- make animation of fracture over time https://plot.ly/python/animations/
+
+- allow users to save their simulation and see it later

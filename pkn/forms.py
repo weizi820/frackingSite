@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Simulation
+from .models import Simulation, DesignSimulation, AnalysisSimulation
 
 class SimForm(forms.ModelForm):
 	class Meta:
@@ -17,25 +17,40 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
 
-class DesignForm(forms.Form):
-	list_of_units = (
-		('Pa', 'Pa/m/s'),
-		('MPa', 'MPa/mm/s'),
-		)
-	unit = forms.ChoiceField(label="Units", choices=list_of_units)
-	length = forms.FloatField(label="Fracture length", initial=1000)
-	height = forms.FloatField(label="Fracture height",initial=51.8)
-	q = forms.FloatField(label="Fluid injection flow rate",initial=0.0662)
-	young_mod = forms.FloatField(label="Young's modulus",initial=5.5783e10)
-	nu = forms.FloatField(label="Poisson's ratio", min_value=0.01, max_value = 0.99,initial=0.3)
-	mu = forms.FloatField(label="Fluid viscosity",initial=0.2)
-	fluid_loss_coeff = forms.FloatField(label="Fluid loss coefficient",initial=9.84e-6)
-	spurt_coeff = forms.FloatField(label="Spurt loss coefficient",initial=0)
-	list_of_balance_models = (
-			('noleak', 'No leak-off'),
-			('carter', 'Carter leak-off'), 
-			('largeleak', 'Large leak-off'),)
-	balance = forms.ChoiceField(label="Material balance model", choices=list_of_balance_models)
+class DesignForm(forms.ModelForm):
+	class Meta: 
+		model = DesignSimulation
+		labels = {
+			"unit": "Units",
+			"length": "Fracture Length"
+		}
+		
+		fields = ('title','unit','length','height','q','young_mod','nu','mu','fluid_loss_coeff','spurt_coeff','balance',)
+
+class AnalysisFormSave(forms.ModelForm):
+	class Meta: 
+		model = AnalysisSimulation
+		fields = ('title','unit','start_time','end_time','inc','height','q','young_mod','nu','mu','fluid_loss_coeff','spurt_coeff','balance',)
+
+# class DesignForm(forms.Form):
+# 	list_of_units = (
+# 		('Pa', 'Pa/m/s'),
+# 		('MPa', 'MPa/mm/s'),
+# 		)
+# 	unit = forms.ChoiceField(label="Units", choices=list_of_units)
+# 	length = forms.FloatField(label="Fracture length", initial=1000)
+# 	height = forms.FloatField(label="Fracture height",initial=51.8)
+# 	q = forms.FloatField(label="Fluid injection flow rate",initial=0.0662)
+# 	young_mod = forms.FloatField(label="Young's modulus",initial=5.5783e10)
+# 	nu = forms.FloatField(label="Poisson's ratio", min_value=0.01, max_value = 0.99,initial=0.3)
+# 	mu = forms.FloatField(label="Fluid viscosity",initial=0.2)
+# 	fluid_loss_coeff = forms.FloatField(label="Fluid loss coefficient",initial=9.84e-6)
+# 	spurt_coeff = forms.FloatField(label="Spurt loss coefficient",initial=0)
+# 	list_of_balance_models = (
+# 			('noleak', 'No leak-off'),
+# 			('carter', 'Carter leak-off'), 
+# 			('largeleak', 'Large leak-off'),)
+# 	balance = forms.ChoiceField(label="Material balance model", choices=list_of_balance_models)
 	# TODO: set default values to example from book and cite
 
 class AnalysisForm(forms.Form):

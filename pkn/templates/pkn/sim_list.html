@@ -3,9 +3,9 @@
 {% block content %}
   {% for sim in simulations%}
     <div>
-      <p> Published: {{ sim.published_date }} </p>
-      <p><a href="{% url 'sim_detail' pk=sim.pk %}">{{ sim.title }}</a></p>
-      <p>{{ sim.description|linebreaksbr }}</p>
+      <p> Created: {{ sim.save_date }} </p>
+      <p><a href="{% url 'pkn_design_results' pk=sim.pk %}">{{ sim.title }}</a></p>
+      <!-- <p>{{ sim.description|linebreaksbr }}</p> -->
     </div>  
   {% endfor %}
 {% endblock %}
